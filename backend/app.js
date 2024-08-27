@@ -11,9 +11,15 @@ const bodyParser = require('body-parser');
 app.use(cors())
 app.use(bodyParser.json());
 
-app.use(userRoutes);
-app.use(productRoutes);
-app.use(cartRoutes);
+// Set up API routes
+app.use('/api', userRoutes);
+app.use('/api', productRoutes);
+app.use('/api', cartRoutes);
+
+// Root route to test if server is running
+app.get('/api', (req, res) => {
+  res.send('API is running!');
+});
 
 const startServer = async () => {
     try {
