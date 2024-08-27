@@ -14,6 +14,9 @@ app.use(bodyParser.json());
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(cartRoutes);
+app.get('/', (req, res) => {
+  res.send('API is running!');
+});
 
 const startServer = async () => {
     try {
