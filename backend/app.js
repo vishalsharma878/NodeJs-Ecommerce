@@ -23,10 +23,10 @@ app.get('/api', (req, res) => {
 
 const startServer = async () => {
     try {
-      await mongoose.connect(process.env.MONGO_CLIENT);
+      await mongoose.connect('mongodb+srv://vishalsharma28784:pE7gVP6ocWBp0zwR@cluster2.rmqgd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2');
       console.log("Connected to MongoDB");
   
-      const port = process.env.PORT || 3000;
+      const port = 3000;
       app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
       });
