@@ -182,7 +182,7 @@ async function checkAdmin() {
 document.getElementById('logoutBtn').addEventListener('click', async () => {
   try {
     localStorage.removeItem('token');
-    window.location.href = '/views/index.html';
+    window.location.href = '/index.html';
   } catch (error) {
     console.error('Error during logout:', error);
     alert('Failed to log out. Please try again.');
