@@ -41,7 +41,7 @@ login.addEventListener('submit', async function(e) {
         const res = await axios.post('https://ecommerce-rk3c.onrender.com/login', loginFormData);
         alert(`Hello, ${res.data.user.email}`);
         localStorage.setItem('token', res.data.token);
-        window.location.href = '/frontend/product.html';
+        window.location.href = '/product.html';
     } catch (err) { 
         
         alert(err.response?.data?.message || 'An error occurred');
