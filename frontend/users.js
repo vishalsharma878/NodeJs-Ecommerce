@@ -21,7 +21,7 @@ form.addEventListener('submit', async function(e) {
     form.reset();
     
     try {
-        const res = await axios.post('http://localhost:3000/register', signupFormData);
+        const res = await axios.post('https://ecommerce-rk3c.onrender.com/register', signupFormData);
         alert(res.data.message); 
     } catch (err) {
        
@@ -38,7 +38,7 @@ login.addEventListener('submit', async function(e) {
     login.reset();
     
     try {
-        const res = await axios.post('http://localhost:3000/login', loginFormData);
+        const res = await axios.post('https://ecommerce-rk3c.onrender.com/login', loginFormData);
         alert(`Hello, ${res.data.user.email}`);
         localStorage.setItem('token', res.data.token);
         window.location.href = '/views/product.html';

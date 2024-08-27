@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://ecommerce-rk3c.onrender.com";
 
 function showSection(section) {
   document
