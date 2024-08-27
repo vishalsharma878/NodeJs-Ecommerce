@@ -11,22 +11,16 @@ const bodyParser = require('body-parser');
 app.use(cors())
 app.use(bodyParser.json());
 
-// Set up API routes
-app.use('/api', userRoutes);
-app.use('/api', productRoutes);
-app.use('/api', cartRoutes);
-
-// Root route to test if server is running
-app.get('/api', (req, res) => {
-  res.send('API is running!');
-});
+app.use(userRoutes);
+app.use(productRoutes);
+app.use(cartRoutes);
 
 const startServer = async () => {
     try {
-      await mongoose.connect('mongodb+srv://vishalsharma28784:pE7gVP6ocWBp0zwR@cluster2.rmqgd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2');
+      await mongoose.connect(process.env.MONGO_CLIENT);
       console.log("Connected to MongoDB");
   
-      const port = 3000;
+      const port = process.env.PORT || 3000;
       app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
       });
