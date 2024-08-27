@@ -128,9 +128,8 @@ async function checkout() {
   }
 }
 
-document
-  .getElementById("addProductForm")
-  .addEventListener("submit", async (e) => {
+const form = document.getElementById("addProductForm");
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const title = document.getElementById("productTitle").value;
@@ -153,6 +152,7 @@ document
       });
 
       alert("Product added successfully!");
+      form.reset();
       fetchProducts();
     } catch (error) {
       alert(error.response ? error.response.data.message : "Error adding product.");
